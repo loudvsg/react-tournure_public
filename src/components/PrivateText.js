@@ -7,7 +7,7 @@ import PutComment from './PutComment';
 
 
 
-const PrivateText = ({ text, currentUser }) => {
+const PrivateText = ({ text, currentUser , showTextWindow}) => {
 
 
   
@@ -35,7 +35,6 @@ const PrivateText = ({ text, currentUser }) => {
           <TextLine lightBg={true}>
 
           {!click ? text.text.slice(0,100)+'...' : text.text }
-          {!click ? text.text.slice(0,100)+'...' : text.text }
           
             
           </TextLine>
@@ -53,7 +52,7 @@ const PrivateText = ({ text, currentUser }) => {
 
         </AddIcon>
 
-        {click ? <PutComment currentUser={currentUser} reference={text.reference}>
+        {click ? <PutComment showTextWindow={showTextWindow} currentUser={currentUser} reference={text.reference}>
 
 
         </PutComment> :  <></>}

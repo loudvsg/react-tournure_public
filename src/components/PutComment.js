@@ -3,12 +3,44 @@ import "../App.css";
 import { db, increment } from "../firebase";
 import Button from "./Button";
 import { ThemeLine, Label,Input } from "./Elements/Info.element";
+import { TextArea, BoxButton, BoxContainer,MobileText, BigBoxItem, NavContainer,  NavItem, NavTitle, NavMenuR} from "./Elements/Box.element";
+import { AddIcon,CheckboxContainer, HiddenCheckbox,StyledCheckbox, Icon } from "./Elements/Info.element";
+import {FaRegDotCircle} from 'react-icons/fa'; 
+import { NavLink } from "react-router-dom";
 
-const PutComment = ({reference, currentUser}) => {    
+
+const PutComment = ({reference, currentUser, showTextWindow}) => {    
 
   const [comment, setComment] = useState("");
   const [email, setEmail] = useState("");
   const [loader, setLoader] = useState(false);
+
+  const [checkedOne, setCheckedOne] = React.useState(false);
+  const [checkedTwo, setCheckedTwo] = React.useState(true);
+  const [checkedThree, setCheckedThree] = React.useState(false);
+  const [merciLoad, setMerciLoad] = React.useState(false);
+
+  const handleChangeOne = () => {
+    if (!checkedOne){
+        setCheckedOne(!checkedOne);
+        setCheckedTwo(false);
+        setCheckedThree(false);}
+  };
+ 
+  const handleChangeTwo = () => {
+    if (!checkedTwo){
+        setCheckedTwo(!checkedTwo);
+        setCheckedOne(false);
+        setCheckedThree(false);}
+  };
+
+  const handleChangeThree = () => {
+    if (!checkedThree){
+        setCheckedThree(!checkedThree);
+        setCheckedOne(false);
+        setCheckedTwo(false);}
+  };
+ 
 
   const chapitre = (Math.trunc(new Date().getTime()/((1000*60*60*24*7)))-2698).toString();
 
@@ -42,6 +74,14 @@ const PutComment = ({reference, currentUser}) => {
         
                 setLoader(false);
                 alert("Your comment has been submitted👍");
+                console.log(showTextWindow)
+
+                console.log(showTextWindow)
+                //return () => showTextWindow
+                //window.location.reload(true);
+                setMerciLoad(true)
+
+                
               })
               .catch((error) => {
                 alert(error.message);
@@ -64,28 +104,168 @@ const PutComment = ({reference, currentUser}) => {
 
   };
 
-
+/*
+      <Checkbox
+        label="Value 1"
+        checked={checkedOne}
+        onChange={handleChangeOne}
+      />
+      <Checkbox
+        label="Value 2"
+        checked={checkedTwo}
+        onChange={handleChangeTwo}
+      />
+      <Checkbox
+        label="Value 3"
+        checked={checkedThree}
+        onChange={handleChangeThree}
+      />
+      */
 
   
 
   return (
-    <form className="form" onSubmit={handleSubmit}>
-      <ThemeLine>Effectue ton choix ici </ThemeLine>
 
-      <Label>Commentaire</Label>
-      <textarea
+<div>
+
+{!merciLoad && <form className="form" onSubmit={handleSubmit}>
+      <ThemeLine>Effectue ton choix </ThemeLine>
+
+
+
+<BoxContainer>
+
+      <BigBoxItem>
+      <MobileText>Texte médiocre</MobileText>
+
+      <CheckboxContainer>
+      <HiddenCheckbox checked={checkedOne} />
+      <StyledCheckbox checked={checkedOne} onClick={handleChangeOne}>
+      
+      <Icon viewBox="0 0 24 24">
+        <polyline points="20 6 9 17 4 12" />
+      </Icon>
+      </StyledCheckbox>
+    </CheckboxContainer>
+
+
+
+      
+    </BigBoxItem>
+
+    
+    <BigBoxItem>
+      <MobileText>Beau texte</MobileText>
+
+      <CheckboxContainer>
+      <HiddenCheckbox checked={checkedTwo} />
+      <StyledCheckbox checked={checkedTwo} onClick={handleChangeTwo}>
+      
+        <Icon viewBox="0 0 24 24">
+            
+
+            
+          <polyline points="20 6 9 17 4 12" />
+        </Icon>
+      </StyledCheckbox>
+    </CheckboxContainer>
+
+
+
+      
+    </BigBoxItem>
+
+    
+    <BigBoxItem>
+      <MobileText>Texte magnifique</MobileText>
+
+      <CheckboxContainer>
+      <HiddenCheckbox checked={checkedThree} />
+      <StyledCheckbox checked={checkedThree} onClick={handleChangeThree}>
+      
+        <Icon viewBox="0 0 24 24">
+           
+          <polyline points="20 6 9 17 4 12" />
+        </Icon>
+      </StyledCheckbox>
+    </CheckboxContainer>
+
+
+
+      
+    </BigBoxItem>
+
+    </BoxContainer>
+
+    <ThemeLine>Tu peux également laisser un commentaire </ThemeLine>
+
+<div class="justified">
+<TextArea
+      rows="8" cols="70" maxLength="5000"
         placeholder="Commentaire Faculatif"
         value={comment}
         onChange={(e) => setComment(e.target.value)}
-      ></textarea>
+      ></TextArea>
 
-      <Button
+
+
+
+</div>
+      
+      <div class="justified">
+
+
+
+            <BoxButton
+      className="btnpublic"
         type="submit"
+
         style={{ background: loader ? "#ccc" : " rgb(2, 2, 110)" }}
       >
-        Submit
-      </Button>
-    </form>
+          
+        Envoyer
+
+        
+      </BoxButton>
+
+      </div>
+
+   
+      
+    </form>}
+
+    {merciLoad && 
+
+    <>
+    
+    <ThemeLine>Merci pour ta contribution :)  </ThemeLine>
+
+    <div class="justified">
+
+            <BoxButton
+      className="btnpublic"
+      
+        onClick={() => window.location.reload(true)
+        }
+
+        style={{ background: loader ? "#ccc" : " rgb(2, 2, 110)" }}
+      >
+          
+        Recharger la page 
+      </BoxButton>
+
+      </div>
+
+    </>
+    
+    
+    }
+
+</div>
+
+    
+
+    
   );
 };
 

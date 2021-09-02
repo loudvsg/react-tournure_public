@@ -2,26 +2,59 @@ import styled from 'styled-components';
 import {FaMagento} from 'react-icons/fa'
 import { Container } from '../../globalStyles'
 
-export const StyledHeader = styled.div`
-background: #5711f4;
-height: 100px;
-display: flex;
-justify-content: center;
-align-items: center;
-margin-bottom: 50px;
-`
 
-export const Nav = styled.nav`
-background: #000;
+export const BoxContainer = styled.nav`
+background: #fff;
 height: 100px;
+margin-top: 100px;
+margin-bottom: 100px;
 width: 100%;
 display: flex;
 align-items: center;
 justify-content: space-between;
 font-size: 1.2rem;
-position: sticky;
-top:0;
-z-index: 999;`
+padding: 30px;
+z-index: 999;
+
+@media screen  and (max-width : 960px){
+    transition: all 0.5s ease;
+}
+
+
+`
+
+export const TextArea = styled.textarea`
+font-size: 1.5rem;
+margin-left: auto;
+    margin-right: auto;
+margin-top: 50px;
+
+
+`
+
+
+
+export const BigBoxItem = styled.div`
+
+display: flex;
+align-items: center;
+flex-direction: column;
+margin-left: auto;
+    margin-right: auto;
+
+`
+export const BoxButton = styled.button`
+margin:100px;
+font-size: 1.5rem;
+
+display: flex;
+align-items: center;
+flex-direction: column;
+
+`
+
+
+
 
 export const NavContainer = styled(Container)`
 height: 100px;
@@ -37,17 +70,25 @@ export const NavIcon = styled(FaMagento)`
     margin-right: 0.5rem;
 `
 
-export const NavTitle = styled.li`
+export const NavTitle = styled.h1`
     jusify-self: flex-start;
     display: flex;
     align-items: center;
     left: left();
-    color:#ffd;
-    cursor: pointer;
-    text-decoration: none;
-  border: none;
+    color:#ffd
+`
 
 
+
+export const MobileText = styled.h2`
+
+display: flex;
+    
+
+@media screen  and (max-width : 960px){
+    display: none;
+    
+}
 `
 
 export const MobileIcon = styled.div`
@@ -64,17 +105,6 @@ display: none;
     cursor: pointer;
 }
 `
-
-export const TitleMenu = styled.ul`
-
-display: flex;
-align-items: center;
-list-style: none;
-text-align: center;
-
-
-`
-
 
 export const NavMenuR = styled.ul`
 
@@ -111,7 +141,4 @@ align-items: center;
     padding: 1rem;
 }
 `
-
-
-
 

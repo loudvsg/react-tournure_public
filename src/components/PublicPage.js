@@ -9,7 +9,7 @@ const PublicPage = ({texts, month}) => {
 
   return (
     <div>
-      <ThemeLine>{"Les plus beaux textes d'aout sont présentés ici "}</ThemeLine>
+      <ThemeLine>{"Révélation "}</ThemeLine>
       <PublicTexts        
        texts={texts}
       />

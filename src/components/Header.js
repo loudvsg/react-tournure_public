@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import Button from './Button'
 import { NavLink } from 'react-router-dom';
 import { useAuth } from "../contexts/AuthContext"
-import {MobileIcon, NavTitle, Nav, NavItem, NavContainer, NavMenuR, StyledHeader} from "./Elements/Header.element"
+import {MobileIcon, TitleMenu, NavTitle, Nav, NavItem, NavContainer, NavMenuR, StyledHeader} from "./Elements/Header.element"
 import { FaBars, FaTimes} from 'react-icons/fa';
 import { useState } from 'react';
 import { IconContext } from 'react-icons/lib';
@@ -17,7 +17,15 @@ const handleClick = () => setClick(!click);
     <Nav>
       <NavContainer>      
       <IconContext.Provider value={{color: '#ffd'}}>
-      <NavTitle >{title}</NavTitle>
+      <TitleMenu>
+      <NavTitle >
+      <NavLink  activeStyle={{
+          fontWeight: "bold",
+          color: "white",
+          }} 
+          className="voidbtn"
+         to="/">{title}</NavLink></NavTitle>
+         </TitleMenu>
 
       <NavMenuR onClick={handleClick} click={click}>
         

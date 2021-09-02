@@ -31,6 +31,15 @@ body {
   z-index: 999;
 }
 
+.voidbtn {
+  text-decoration: none;
+}
+
+.justified {
+  display: flex;
+  justify-content: center;
+}
+
 .btn {
   display: inline-block;
   background: #000;
