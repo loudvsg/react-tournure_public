@@ -20,8 +20,9 @@ const app = firebase.initializeApp({
 
 var db = app.firestore();
 var increment = firebase.firestore.FieldValue.increment(1);
+var incrementNull = firebase.firestore.FieldValue.increment(0);
 export {db};
-export {increment};
+export {increment, incrementNull};
 
 export const auth = app.auth()
 export default app

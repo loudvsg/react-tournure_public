@@ -20,8 +20,8 @@ const DepositNewText = () => {
     e.preventDefault();
     setLoader(true);
 
-    db.collection("Chapitre"+chapitre)
-      .add({
+    db.collection("Chapitre"+chapitre).doc(refMillisec)
+      .set({
         name: name,
         email: email,
         texte: texte,
@@ -32,8 +32,8 @@ const DepositNewText = () => {
 
 
 
-              db.collection("References"+chapitre)
-              .add({
+              db.collection("References"+chapitre).doc(refMillisec)
+              .set({
                 negativeCount:0,
                 neutralCount: 0,
                 positiveCount:0,

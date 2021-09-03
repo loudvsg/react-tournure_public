@@ -13,7 +13,7 @@ const DeepPage = () => {
 
   return (
     <div>
-    <ThemeLine>{"Nous avons beaucoup d'autres choses à vous partager."}</ThemeLine>
+    <ThemeLine>{"C'est à nous qu'appartient l'avenir"}</ThemeLine>
 
     <InfoSec lightBg={false}>
     <InfoRow >
@@ -30,7 +30,7 @@ const DeepPage = () => {
     </InfoSec>
 
 
-    <ThemeLine>{"Faisons grandir notre patrimoine"}</ThemeLine>
+    <ThemeLine>{"Faisons grandir notre patrimoine littéraire "}</ThemeLine>
 
 
     <InfoSec lightBg={false}>
@@ -39,7 +39,7 @@ const DeepPage = () => {
 
     <TextLine lightBg={false}>
 
-          {"Si vous avez des projets qui pourraient nous concerner, écrivez nous à latournure@gmail.com"}
+          {"Si vous avez des projets qui pourraient nous concerner, écrivez à latournure@gmail.com"}
 
       </TextLine>
 

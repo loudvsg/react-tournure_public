@@ -42,23 +42,9 @@ const handleClick = () => setClick(!click);
                 to="/publicpage">Chapitre : {chapitre}</NavLink>
       </NavItem>
       
-      <NavItem>
-        {!currentUser ? 
-          <NavLink 
-            activeStyle={{
-            fontWeight: "bold",
-            }} 
-            className="btnpublic" to="/login">Page pour lecteurs
-          </NavLink> : 
-          <NavLink 
-            activeStyle={{
-            fontWeight: "bold",
-            }} 
-            className="btnpublic" to="/privatetexts">Page Privée
-          </NavLink>
-        }
-        </NavItem>
-     
+            
+
+
           
         <NavItem>
 
@@ -66,17 +52,35 @@ const handleClick = () => setClick(!click);
           fontWeight: "bold",
           }} 
           className="btnpublic" to="/deposit">
-            Déposer son Texte</NavLink>
+            Dépôt </NavLink>
         </NavItem>  
 
 
         <NavItem>
 
+      <NavItem>
+        {!currentUser ? 
+          <NavLink 
+            activeStyle={{
+            fontWeight: "bold",
+            }} 
+            className="btnpublic" to="/login">Lecteurs
+          </NavLink> : 
+          <NavLink 
+            activeStyle={{
+            fontWeight: "bold",
+            }} 
+            className="btnpublic" to="/privatetexts">Lecteurs
+          </NavLink>
+        }
+        </NavItem>
+     
+
         <NavLink activeStyle={{
           fontWeight: "bold",
                     }} 
           className="btnpublic" to="/deeppage">
-            Mais encore</NavLink>
+            Davantage</NavLink>
         </NavItem>  
 
 

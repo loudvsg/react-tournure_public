@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "../App.css";
-import { db, increment } from "../firebase";
+import { db, increment, incrementNull } from "../firebase";
 import Button from "./Button";
 import { ThemeLine, Label,Input } from "./Elements/Info.element";
 import { TextArea, BoxButton, BoxContainer,MobileText, BigBoxItem, NavContainer,  NavItem, NavTitle, NavMenuR} from "./Elements/Box.element";
@@ -14,6 +14,8 @@ const PutComment = ({reference, currentUser, showTextWindow}) => {
   const [comment, setComment] = useState("");
   const [email, setEmail] = useState("");
   const [loader, setLoader] = useState(false);
+  const [typeCount, setTypeCount] = useState("");
+
 
   const [checkedOne, setCheckedOne] = React.useState(false);
   const [checkedTwo, setCheckedTwo] = React.useState(true);
@@ -21,6 +23,7 @@ const PutComment = ({reference, currentUser, showTextWindow}) => {
   const [merciLoad, setMerciLoad] = React.useState(false);
 
   const handleChangeOne = () => {
+    setTypeCount("negative")
     if (!checkedOne){
         setCheckedOne(!checkedOne);
         setCheckedTwo(false);
@@ -28,6 +31,7 @@ const PutComment = ({reference, currentUser, showTextWindow}) => {
   };
  
   const handleChangeTwo = () => {
+    setTypeCount("neutral")
     if (!checkedTwo){
         setCheckedTwo(!checkedTwo);
         setCheckedOne(false);
@@ -35,11 +39,34 @@ const PutComment = ({reference, currentUser, showTextWindow}) => {
   };
 
   const handleChangeThree = () => {
+    setTypeCount("positive")
     if (!checkedThree){
         setCheckedThree(!checkedThree);
         setCheckedOne(false);
         setCheckedTwo(false);}
   };
+
+  const incrementPositive = () => {
+    if (checkedThree) {
+      return increment
+    }
+    else{return incrementNull}
+  }
+
+  const incrementNegative = () => {
+    if (checkedOne) {
+
+      return increment
+    }
+    else{return incrementNull}
+  }
+
+  const incrementNeutral = () => {
+    if (checkedTwo) {
+      return increment
+    }
+    else{return incrementNull}
+  }
  
 
   const chapitre = (Math.trunc(new Date().getTime()/((1000*60*60*24*7)))-2698).toString();
@@ -59,18 +86,22 @@ const PutComment = ({reference, currentUser, showTextWindow}) => {
     db.collection("References"+chapitre).doc(reference)
       .update({
         totalCount: increment,
+        positiveCount: incrementPositive(),
+        negativeCount : incrementNegative(),
+        neutralCount: incrementNeutral(),
       })
       .then(() => {
-
-
+        console.log("tP", typeCount)
+       
 
               db.collection("Users").doc(currentUser.email).collection("References").doc(reference)
               .set({
                 reference:reference,
-                count: "positive",
-                comment: "default comment"
+                count: typeCount,
+                comment: comment,
               })
               .then(() => {
+        console.log("tP2", typeCount)
         
                 setLoader(false);
                 alert("Ton avis nous a été transmis, merci pour ta contribution ! ");
@@ -258,5 +289,10 @@ v
     
   );
 };
+
+
+PutComment.defaultProps = {
+  value: '',
+}
 
 export default PutComment;

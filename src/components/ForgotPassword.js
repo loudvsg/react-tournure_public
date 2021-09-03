@@ -36,8 +36,8 @@ export default function ForgotPassword() {
         <Card.Body>
           <ThemeLineFormal>Réinitialiser mon mot de passe</ThemeLineFormal>
 
-          {error && <Alert variant="danger">{error}</Alert>}
-          {message && <Alert variant="success">{message}</Alert>}
+          {error && <Alert className="justified" variant="danger">{error}</Alert>}
+          {message && <Alert className="justified" variant="success">{message}</Alert>}
 
 
           <Form onSubmit={handleSubmit}>

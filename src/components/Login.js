@@ -55,7 +55,7 @@ export default function Login({texts}) {
                   
           
           
-          {error && <Alert variant="danger">{error}</Alert>}
+          {error && <Alert className="justified" variant="danger">{error}</Alert>}
           <div className="justified">
           <Form onSubmit={handleSubmit}>
             <div id="email">

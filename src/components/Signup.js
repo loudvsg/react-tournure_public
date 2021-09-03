@@ -1,3 +1,4 @@
+import { db } from "../firebase";
 import React, { useRef, useState } from "react"
 import { Form, Button, Card, Alert } from "react-bootstrap"
 import { useAuth } from "../contexts/AuthContext"
@@ -15,6 +16,7 @@ export default function Signup() {
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
   const history = useHistory()
+  
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -27,7 +29,22 @@ export default function Signup() {
       setError("")
       setLoading(true)
       await signup(emailRef.current.value, passwordRef.current.value)
-      history.push("/")
+
+
+      db.collection("Users").doc(emailRef.current.value)
+      .set({
+        email: emailRef.current.value,
+      })
+      .then(() => {
+
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
+
+
+
+      history.push("/login")
     } catch {
       setError("Impossible de créer un compte")
     }
@@ -35,13 +52,17 @@ export default function Signup() {
     setLoading(false)
   }
 
+
+
+
+
   return (
     <>
       <Card>
         <Card.Body>
           <ThemeLineFormal>Inscription</ThemeLineFormal>
 
-          {error && <Alert variant="danger">{error}</Alert>}
+          {error && <Alert className="justified" variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
           <div className="justified">
 
