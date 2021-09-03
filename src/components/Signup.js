@@ -3,6 +3,10 @@ import { Form, Button, Card, Alert } from "react-bootstrap"
 import { useAuth } from "../contexts/AuthContext"
 import { Link, useHistory } from "react-router-dom"
 
+import { ThemeLineFormal } from './Elements/Info.element'
+import { InputArea, TextArea, BoxButton, BoxContainer,MobileText, BigBoxItem, NavContainer,  NavItem, NavTitle, NavMenuR} from "./Elements/Box.element";
+
+
 export default function Signup() {
   const emailRef = useRef()
   const passwordRef = useRef()
@@ -16,7 +20,7 @@ export default function Signup() {
     e.preventDefault()
 
     if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-      return setError("Passwords do not match")
+      return setError("Mots de passe différents")
     }
 
     try {
@@ -25,7 +29,7 @@ export default function Signup() {
       await signup(emailRef.current.value, passwordRef.current.value)
       history.push("/")
     } catch {
-      setError("Failed to create an account")
+      setError("Impossible de créer un compte")
     }
 
     setLoading(false)
@@ -35,30 +39,53 @@ export default function Signup() {
     <>
       <Card>
         <Card.Body>
-          <h2 className="text-center mb-4">Sign Up</h2>
+          <ThemeLineFormal>Inscription</ThemeLineFormal>
+
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
+          <div className="justified">
+
             <Form.Group id="email">
-              <Form.Label>Email</Form.Label>
-              <Form.Control type="email" ref={emailRef} required />
-            </Form.Group>
+              <InputArea placeholder="Email" type="email" ref={emailRef} required />
+              </Form.Group>
+              </div>
+          <div className="justified">
+            
             <Form.Group id="password">
-              <Form.Label>Password</Form.Label>
-              <Form.Control type="password" ref={passwordRef} required />
-            </Form.Group>
+              <InputArea placeholder="Mot de passe" type="password" ref={passwordRef} required />
+
+                </Form.Group>
+            </div>
+                
+          <div className="justified">
+              
             <Form.Group id="password-confirm">
-              <Form.Label>Password Confirmation</Form.Label>
-              <Form.Control type="password" ref={passwordConfirmRef} required />
-            </Form.Group>
-            <Button disabled={loading} className="w-100" type="submit">
-              Sign Up
-            </Button>
+              <InputArea placeholder="Mot de passe" type="password" ref={passwordConfirmRef} required />
+              
+                </Form.Group>
+            </div>
+                
+
+            <div class="justified">
+                
+
+            <BoxButton disabled={loading} className="btnpublic" type="submit">
+              Entrer
+            
+              
+            </BoxButton>
+            </div>
+            
           </Form>
         </Card.Body>
       </Card>
-      <div className="w-100 text-center mt-2">
-        Already have an account? <Link to="/login">Log In</Link>
-      </div>
+
+      <ThemeLineFormal className="w-100 text-center mt-2">
+        
+        <Link to="/login">Connexion</Link>
+        
+      </ThemeLineFormal>
+
     </>
   )
 }

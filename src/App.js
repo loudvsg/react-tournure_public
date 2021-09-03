@@ -22,6 +22,7 @@ import { Container } from './globalStyles'
 import Signup from './components/Signup'
 import Login from './components/Login'
 import ForgotPassword from './components/ForgotPassword'
+import FirstPage from './components/FirstPage'
 
 
 
@@ -205,12 +206,14 @@ function App()  {
             )}
           />
           <Switch>
+          <Route exact path = "/" component={FirstPage} />
             <Route exact path = "/publicpage" render={() => <PublicPage texts={blogs} month={month} />} />
             <PrivateRoute exact path = "/privatetexts" component={PrivateTexts} texts={privatetexts}  />
             <Route exact path = "/login" component={Login} />
             <Route exact path = "/signup" component={Signup} />
             <Route exact path = "/forgot-password" component={ForgotPassword} />
             <Route exact path = "/deposit" component={DepositNewText} />
+            <Route exact path = "/deeppage" component={DeepPage} />
           </Switch>
           <NavIcon/>
 

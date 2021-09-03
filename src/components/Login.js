@@ -4,7 +4,10 @@ import { Redirect } from "react-router-dom"
 import { useAuth } from "../contexts/AuthContext"
 import PrivateText from "./PrivateText"
 import PublicTexts from "./PublicTexts"
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { ThemeLineFormal } from './Elements/Info.element'
+import { InputArea, TextArea, BoxButton, BoxContainer,MobileText, BigBoxItem, NavContainer,  NavItem, NavTitle, NavMenuR} from "./Elements/Box.element";
+
 
 export default function Login({texts}) {
   const emailRef = useRef()
@@ -23,15 +26,19 @@ export default function Login({texts}) {
 
     try {
       setError("")
+      setLoading(true)
       await login(emailRef.current.value, passwordRef.current.value)
       console.log(" validity")
       onShowTexts();
 
 
     } catch {
-      setError("Failed to log in")
+      setError("Erreur lors de la connexion")
       console.log("error")
     }
+
+    setLoading(false)
+
   }
 
   const onShowTexts = () =>{
@@ -42,30 +49,52 @@ export default function Login({texts}) {
     <>
       <Card>
         <Card.Body>
-          <h2 className="text-center mb-4">Log In</h2>
+          
+          
+          <ThemeLineFormal>Connexion</ThemeLineFormal>
+                  
+          
+          
           {error && <Alert variant="danger">{error}</Alert>}
+          <div className="justified">
           <Form onSubmit={handleSubmit}>
-            <Form.Group id="email">
-              <Form.Label>Email</Form.Label>
-              <Form.Control type="email" ref={emailRef} required />
-            </Form.Group>
-            <Form.Group id="password">
-              <Form.Label>Password</Form.Label>
-              <Form.Control type="password" ref={passwordRef} required />
-            </Form.Group>
-            <Button className="w-100" type="submit">
-              Log In
-            </Button>
-          </Form>
-          <div className="w-100 text-center mt-3">
-            <Link to="/forgot-password">Forgot Password?</Link>
-          </div>
+            <div id="email">
+              <InputArea         placeholder="Email"
+
+                  type="email" ref={emailRef} required />
+            </div>
+            <div id="password">
+              <InputArea placeholder="Mot de passe" type="password" ref={passwordRef} required />
+              </div>
+              
+              <div class="justified">
+                
+
+            <BoxButton disabled={loading} className="btnpublic"
+              type="submit"
+
+              >
+              Entrer
+              
+            </BoxButton>
+              </div>
+                         
+      
+            </Form>
+            </div>
+          <ThemeLineFormal className="w-100 text-center mt-3">
+            <Link to="/forgot-password">Mot de passe oublié ?</Link>
+          </ThemeLineFormal>
         </Card.Body>
       </Card>
 
-      <div className="w-100 text-center mt-2">
-      Need an account? <Link to="/signup">Sign Up</Link>
-      </div>
+      <ThemeLineFormal className="w-100 text-center mt-2">
+        
+        <Link to="/signup">Inscription</Link>
+        
+
+      </ThemeLineFormal>
+
       
     </>
   )

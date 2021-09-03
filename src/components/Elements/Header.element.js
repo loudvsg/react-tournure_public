@@ -37,7 +37,7 @@ export const NavIcon = styled(FaMagento)`
     margin-right: 0.5rem;
 `
 
-export const NavTitle = styled.li`
+export const NavTitle = styled.h1`
     jusify-self: flex-start;
     display: flex;
     align-items: center;

@@ -3,6 +3,10 @@ import { Form, Button, Card, Alert } from "react-bootstrap"
 import { useAuth } from "../contexts/AuthContext"
 import { Link } from "react-router-dom"
 
+import { ThemeLineFormal } from './Elements/Info.element'
+import { InputArea, TextArea, BoxButton, BoxContainer,MobileText, BigBoxItem, NavContainer,  NavItem, NavTitle, NavMenuR} from "./Elements/Box.element";
+
+
 export default function ForgotPassword() {
   const emailRef = useRef()
   const { resetPassword } = useAuth()
@@ -18,9 +22,9 @@ export default function ForgotPassword() {
       setError("")
       setLoading(true)
       await resetPassword(emailRef.current.value)
-      setMessage("Check your inbox for further instructions")
+      setMessage("Email envoyé pour réinitialiser le mot de passe")
     } catch {
-      setError("Failed to reset password")
+      setError("Erreur : impossible de réinitialiser le mot de passe")
     }
 
     setLoading(false)
@@ -30,26 +34,35 @@ export default function ForgotPassword() {
     <>
       <Card>
         <Card.Body>
-          <h2 className="text-center mb-4">Password Reset</h2>
+          <ThemeLineFormal>Réinitialiser mon mot de passe</ThemeLineFormal>
+
           {error && <Alert variant="danger">{error}</Alert>}
           {message && <Alert variant="success">{message}</Alert>}
+
+
           <Form onSubmit={handleSubmit}>
+          <div className="justified">
+
             <Form.Group id="email">
-              <Form.Label>Email</Form.Label>
-              <Form.Control type="email" ref={emailRef} required />
-            </Form.Group>
-            <Button disabled={loading} className="w-100" type="submit">
-              Reset Password
-            </Button>
+              <InputArea placeholder="Email" type="email" ref={emailRef} required />
+              </Form.Group>
+              </div>
+          <div className="justified">
+              
+            <BoxButton disabled={loading} className="btnpublic" type="submit">
+              Envoyer
+              </BoxButton>
+              </div>
           </Form>
-          <div className="w-100 text-center mt-3">
-            <Link to="/login">Login</Link>
-          </div>
+
+          <ThemeLineFormal className="w-100 text-center mt-3">
+            <Link to="/login">Connexion</Link>
+          </ThemeLineFormal>
         </Card.Body>
       </Card>
-      <div className="w-100 text-center mt-2">
-        Need an account? <Link to="/signup">Sign Up</Link>
-      </div>
+      <ThemeLineFormal className="w-100 text-center mt-2">
+        <Link to="/signup">Inscription</Link>
+      </ThemeLineFormal>
     </>
   )
 }

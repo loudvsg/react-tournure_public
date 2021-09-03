@@ -73,13 +73,14 @@ const PutComment = ({reference, currentUser, showTextWindow}) => {
               .then(() => {
         
                 setLoader(false);
-                alert("Your comment has been submitted👍");
+                alert("Ton avis nous a été transmis, merci pour ta contribution ! ");
                 console.log(showTextWindow)
 
                 console.log(showTextWindow)
                 //return () => showTextWindow
                 //window.location.reload(true);
-                setMerciLoad(true)
+                //setMerciLoad(true)
+                window.location.reload(true)
 
                 
               })
@@ -124,146 +125,135 @@ const PutComment = ({reference, currentUser, showTextWindow}) => {
 
   
 
-  return (
+return (
 
 <div>
 
 {!merciLoad && <form className="form" onSubmit={handleSubmit}>
-      <ThemeLine>Effectue ton choix </ThemeLine>
+    <ThemeLine>Effectue ton choix </ThemeLine>
 
 
 
 <BoxContainer>
 
-      <BigBoxItem>
-      <MobileText>Texte médiocre</MobileText>
+    <BigBoxItem>
+    <MobileText>Texte médiocre</MobileText>
 
-      <CheckboxContainer>
-      <HiddenCheckbox checked={checkedOne} />
-      <StyledCheckbox checked={checkedOne} onClick={handleChangeOne}>
-      
+    <CheckboxContainer>
+    <HiddenCheckbox checked={checkedOne} />
+    <StyledCheckbox checked={checkedOne} onClick={handleChangeOne}>
+    
+    <Icon viewBox="0 0 24 24">
+      <polyline points="20 6 9 17 4 12" />
+    </Icon>
+    </StyledCheckbox>
+  </CheckboxContainer>
+
+
+
+    
+  </BigBoxItem>
+
+  
+  <BigBoxItem>
+    <MobileText>Beau texte</MobileText>
+
+    <CheckboxContainer>
+    <HiddenCheckbox checked={checkedTwo} />
+    <StyledCheckbox checked={checkedTwo} onClick={handleChangeTwo}>
+    
       <Icon viewBox="0 0 24 24">
+          
+
+          
         <polyline points="20 6 9 17 4 12" />
       </Icon>
-      </StyledCheckbox>
-    </CheckboxContainer>
+    </StyledCheckbox>
+  </CheckboxContainer>
 
 
-
-      
-    </BigBoxItem>
 
     
-    <BigBoxItem>
-      <MobileText>Beau texte</MobileText>
+  </BigBoxItem>
 
-      <CheckboxContainer>
-      <HiddenCheckbox checked={checkedTwo} />
-      <StyledCheckbox checked={checkedTwo} onClick={handleChangeTwo}>
-      
-        <Icon viewBox="0 0 24 24">
-            
+  
+  <BigBoxItem>
+    <MobileText>Texte magnifique</MobileText>
 
-            
-          <polyline points="20 6 9 17 4 12" />
-        </Icon>
-      </StyledCheckbox>
-    </CheckboxContainer>
+    <CheckboxContainer>
+    <HiddenCheckbox checked={checkedThree} />
+    <StyledCheckbox checked={checkedThree} onClick={handleChangeThree}>
+    
+      <Icon viewBox="0 0 24 24">
+          
+        <polyline points="20 6 9 17 4 12" />
+      </Icon>
+    </StyledCheckbox>
+  </CheckboxContainer>
 
 
-
-      
-    </BigBoxItem>
 
     
-    <BigBoxItem>
-      <MobileText>Texte magnifique</MobileText>
+  </BigBoxItem>
 
-      <CheckboxContainer>
-      <HiddenCheckbox checked={checkedThree} />
-      <StyledCheckbox checked={checkedThree} onClick={handleChangeThree}>
-      
-        <Icon viewBox="0 0 24 24">
-           
-          <polyline points="20 6 9 17 4 12" />
-        </Icon>
-      </StyledCheckbox>
-    </CheckboxContainer>
+  </BoxContainer>
 
-
-
-      
-    </BigBoxItem>
-
-    </BoxContainer>
-
-    <ThemeLine>Tu peux également laisser un commentaire </ThemeLine>
+  <ThemeLine>Tu peux également laisser un commentaire </ThemeLine>
 
 <div class="justified">
 <TextArea
-      rows="8" cols="70" maxLength="5000"
-        placeholder="Commentaire Faculatif"
-        value={comment}
-        onChange={(e) => setComment(e.target.value)}
-      ></TextArea>
+    rows="8" cols="70" maxLength="5000"
+      placeholder="Commentaire Faculatif"
+      value={comment}
+      onChange={(e) => setComment(e.target.value)}
+    ></TextArea>
+
 
 
 
 
 </div>
-      
-      <div class="justified">
 
-
-
-            <BoxButton
-      className="btnpublic"
-        type="submit"
-
-        style={{ background: loader ? "#ccc" : " rgb(2, 2, 110)" }}
-      >
-          
-        Envoyer
-
-        
-      </BoxButton>
-
-      </div>
-
-   
-      
-    </form>}
-
-    {merciLoad && 
-
-    <>
     
-    <ThemeLine>Merci pour ta contribution :)  </ThemeLine>
-
     <div class="justified">
+    
 
-            <BoxButton
-      className="btnpublic"
+
+
+          <BoxButton
+    className="btnpublic"
+      type="submit"
+
+      style={{ background: loader ? "#ccc" : " rgb(2, 2, 110)" }}
+    >
+        
+      Envoyer
       
-        onClick={() => window.location.reload(true)
-        }
 
-        style={{ background: loader ? "#ccc" : " rgb(2, 2, 110)" }}
-      >
-          
-        Recharger la page 
-      </BoxButton>
+      
+    </BoxButton>
 
-      </div>
+    </div>
 
-    </>
+  
     
-    
-    }
+  </form>}
+
+  {merciLoad && 
+
+  <>
+  
+  <ThemeLine>Merci pour ta contribution :)  </ThemeLine>
+v
+
+  </>
+  
+  
+  }
 
 </div>
 
-    
+  
 
     
   );

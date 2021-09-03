@@ -13,6 +13,9 @@ const { currentUser } = useAuth()
 const [click, setClick]=useState(false);
 const handleClick = () => setClick(!click);
 
+  const chapitre = (Math.trunc(new Date().getTime()/((1000*60*60*24*7)))-2699).toString();
+  
+
   return (
     <Nav>
       <NavContainer>      
@@ -34,10 +37,9 @@ const handleClick = () => setClick(!click);
       <NavItem>
       <NavLink activeStyle={{
           fontWeight: "bold",
-          color: "yellow"
           }} 
           className="btnpublic"
-         to="/publicpage">Chapitre 0 </NavLink>
+                to="/publicpage">Chapitre : {chapitre}</NavLink>
       </NavItem>
       
       <NavItem>
@@ -45,14 +47,12 @@ const handleClick = () => setClick(!click);
           <NavLink 
             activeStyle={{
             fontWeight: "bold",
-            color: "yellow"
             }} 
             className="btnpublic" to="/login">Page pour lecteurs
           </NavLink> : 
           <NavLink 
             activeStyle={{
             fontWeight: "bold",
-            color: "yellow"
             }} 
             className="btnpublic" to="/privatetexts">Page Privée
           </NavLink>
@@ -64,11 +64,22 @@ const handleClick = () => setClick(!click);
 
         <NavLink activeStyle={{
           fontWeight: "bold",
-          color: "yellow"
           }} 
           className="btnpublic" to="/deposit">
             Déposer son Texte</NavLink>
-        </NavItem>    
+        </NavItem>  
+
+
+        <NavItem>
+
+        <NavLink activeStyle={{
+          fontWeight: "bold",
+                    }} 
+          className="btnpublic" to="/deeppage">
+            Mais encore</NavLink>
+        </NavItem>  
+
+
       </NavMenuR>
 
       

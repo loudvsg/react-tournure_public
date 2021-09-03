@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import "../App.css";
 import { db } from "../firebase";
 import Button from "./Button";
-import { ThemeLine, Label,Input } from "./Elements/Info.element";
+import { ThemeLine, ThemeLineLow, Label,Input } from "./Elements/Info.element";
+import { InputArea, TextArea, BoxButton, BoxContainer,MobileText, BigBoxItem, NavContainer,  NavItem, NavTitle, NavMenuR} from "./Elements/Box.element";
+
 
 const DepositNewText = () => {
   const [name, setName] = useState("");
@@ -74,34 +76,68 @@ const DepositNewText = () => {
     <form className="form" onSubmit={handleSubmit}>
       <ThemeLine>Dépose ton texte ici </ThemeLine>
 
-      <Label>Nom</Label>
+    <ThemeLine>Nom </ThemeLine>
       
-      <Input
+      <div class="justified">
+      <InputArea
         placeholder="Nom"
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
 
-      <Label>Email</Label>
-      <Input
+      </div>
+
+
+
+    <ThemeLine>Email </ThemeLine>
+
+
+      <div class="justified">
+
+      <InputArea
         placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
+      </div>
 
-      <Label>Texte</Label>
-      <textarea
-        placeholder="Texte"
+
+    <ThemeLine>Texte </ThemeLine>
+
+
+      <div class="justified">
+
+      <TextArea
+      rows="8" cols="70" maxLength="50000"
+
+        placeholder="50 000 caractères maximum"
         value={texte}
         onChange={(e) => setTexte(e.target.value)}
-      ></textarea>
+      ></TextArea>
+      </div>
 
-      <Button
-        type="submit"
-        style={{ background: loader ? "#ccc" : " rgb(2, 2, 110)" }}
+
+      <ThemeLineLow>Un texte par semaine maximum</ThemeLineLow>
+
+
+      <div class="justified">
+
+      <BoxButton
+      className="btnpublic"
+      type="submit"
+
+      style={{ background: loader ? "#ccc" : " rgb(2, 2, 110)" }}
       >
-        Submit
-      </Button>
+
+      Envoyer
+
+
+      </BoxButton>
+
+      </div>
+
+
+
     </form>
   );
 };

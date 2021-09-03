@@ -32,6 +32,15 @@ margin-top: 50px;
 
 `
 
+export const InputArea = styled.input`
+font-size: 1.5rem;
+margin-left: auto;
+margin-right: auto;
+margin-top: 50px;
+
+
+`
+
 
 
 export const BigBoxItem = styled.div`
@@ -44,7 +53,7 @@ margin-left: auto;
 
 `
 export const BoxButton = styled.button`
-margin:100px;
+margin:60px;
 font-size: 1.5rem;
 
 display: flex;

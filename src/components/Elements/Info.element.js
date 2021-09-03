@@ -190,6 +190,27 @@ float: center;
 display: flex;
 
 `
+export const ThemeLineLow = styled.h3`
+color: #011;
+padding-top : 50px ;
+text-align: center;
+justify-content: center;
+float: center;
+display: flex;
+
+`
+
+export const ThemeLineFormal = styled.h2`
+color: #011;
+padding-top : 50px ;
+text-align: center;
+justify-content: center;
+float: center;
+display: flex;
+
+`
+
+
 
 
 export const TextLine = styled.div`
