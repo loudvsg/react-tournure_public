@@ -31,13 +31,13 @@ const PrivateText = ({ text, currentUser , showTextWindow}) => {
           {text.title}
           </TopLine>
           
-          <br/>
-          <TextLine lightBg={true}>
+                <br />
+                <TextLine lightBg={true}>
 
-          {!click ? text.text.slice(0,100)+'...' : text.text }
+                  {!click ? text.text.slice(0,100) + '...' : text.text}
           
             
-          </TextLine>
+                </TextLine>
             
           <br/>
           <SubLine lightBg={true}>{text.name}</SubLine>

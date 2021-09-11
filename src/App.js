@@ -129,7 +129,6 @@ function App()  {
   ])
 
   const onMoreDeep = () =>{
-    console.log("deep");
     setShowCriticSpace(false);
     setShowDeepness(true);
     setShowPublicTexts(false);
@@ -137,7 +136,6 @@ function App()  {
   }
 
   const onShowCriticSpace = () =>{
-    console.log("private");
     setShowCriticSpace(true);
     setShowDeepness(false);
     setShowPublicTexts(false);
@@ -145,7 +143,6 @@ function App()  {
   }
 
   const onShowPublicTexts = () =>{
-    console.log("public");
     setShowCriticSpace(false);
     setShowDeepness(false);
     setShowPublicTexts(true);
@@ -169,26 +166,24 @@ function App()  {
   }
 
   const chapitre = (Math.trunc(new Date().getTime()/((1000*60*60*24*7)))-2699).toString();
-//console.log("chapitre mtn0", chapitre)
 
-//call data from firebase
   const [blogs,setBlogs]=useState([])
   
-  const fetchBlogs=async()=>{
+  const fetchBlogs = async () => {
+    try  {
+      
     const response=db.collection('Winners'+chapitre);
     const data=await response.get();
-    console.log(data);
     setBlogs(data.docs.map(item=>{
      return item.data()})
     )
 
+    }
+    catch(e){console.log(e)}
   }
   useEffect(() => {
     fetchBlogs();
   }, [])
-
-  console.log(blogs)
-
 
   return (
     <div id="page-container">

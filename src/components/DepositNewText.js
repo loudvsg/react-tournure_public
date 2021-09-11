@@ -1,20 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../App.css";
 import { db } from "../firebase";
-import Button from "./Button";
-import { ThemeLine, ThemeLineLow, Label,Input } from "./Elements/Info.element";
-import { InputArea, TextArea, BoxButton, BoxContainer,MobileText, BigBoxItem, NavContainer,  NavItem, NavTitle, NavMenuR} from "./Elements/Box.element";
+import { ThemeLine, ThemeLineLow } from "./Elements/Info.element";
+import { InputArea, TextArea, BoxButton} from "./Elements/Box.element";
 
 
 const DepositNewText = () => {
   const [name, setName] = useState("");
+  const [title, setTitle] = useState("");
   const [email, setEmail] = useState("");
   const [texte, setTexte] = useState("");
   const [loader, setLoader] = useState(false);
 
   const chapitre = (Math.trunc(new Date().getTime()/((1000*60*60*24*7)))-2697).toString();
   const refMillisec = (new Date().getTime().toString());
-  console.log(chapitre);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,39 +22,28 @@ const DepositNewText = () => {
     db.collection("Chapitre"+chapitre).doc(refMillisec)
       .set({
         name: name,
+        title: title,
         email: email,
-        texte: texte,
+        text: texte,
         chapitre: chapitre,
         reference: refMillisec,
+        negativeCount:0,
+        neutralCount: 0,
+        positiveCount:0,
+        totalCount:0,
       })
-      .then(() => {
-
-
-
-              db.collection("References"+chapitre).doc(refMillisec)
-              .set({
-                negativeCount:0,
-                neutralCount: 0,
-                positiveCount:0,
-                totalCount:0,
-                chapitre: chapitre,
-                reference: refMillisec,
-              })
+      
               .then(() => {
         
                 setLoader(false);
                 alert("Your message has been submitted👍");
               })
-              .catch((error) => {
-                alert(error.message);
-                setLoader(false);
-              });
         
               
 
 
 
-      })
+      
       .catch((error) => {
         alert(error.message);
         setLoader(false);
@@ -65,6 +53,7 @@ const DepositNewText = () => {
       setName("");
       setEmail("");
       setTexte("");
+      setTitle("");
 
   };
 
@@ -80,7 +69,7 @@ const DepositNewText = () => {
       
       <div class="justified">
       <InputArea
-        placeholder="Nom"
+        placeholder="Ton nom d'artiste"
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
@@ -101,6 +90,17 @@ const DepositNewText = () => {
       />
       </div>
 
+    <ThemeLine>Titre </ThemeLine>
+
+
+      <div class="justified">
+
+      <InputArea
+        placeholder="Titre"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+      />
+      </div>
 
     <ThemeLine>Texte </ThemeLine>
 

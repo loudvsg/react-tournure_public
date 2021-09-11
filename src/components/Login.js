@@ -67,7 +67,7 @@ export default function Login({texts}) {
               <InputArea placeholder="Mot de passe" type="password" ref={passwordRef} required />
               </div>
               
-              <div class="justified">
+              <div className="justified">
                 
 
             <BoxButton disabled={loading} className="btnpublic"

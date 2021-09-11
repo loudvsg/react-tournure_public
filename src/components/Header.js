@@ -58,7 +58,6 @@ const handleClick = () => setClick(!click);
 
         <NavItem>
 
-      <NavItem>
         {!currentUser ? 
           <NavLink 
             activeStyle={{
@@ -75,7 +74,7 @@ const handleClick = () => setClick(!click);
         }
         </NavItem>
      
-
+        <NavItem>
         <NavLink activeStyle={{
           fontWeight: "bold",
                     }} 

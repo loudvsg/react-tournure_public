@@ -71,28 +71,19 @@ const PutComment = ({reference, currentUser, showTextWindow}) => {
 
   const chapitre = (Math.trunc(new Date().getTime()/((1000*60*60*24*7)))-2698).toString();
 
-
-
-  console.log("user comment", currentUser)
-  console.log("usermail comment", currentUser.email)
-
-
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoader(true);
-    console.log("enter the submitting part")
     if (true){
         
-    db.collection("References"+chapitre).doc(reference)
+    db.collection("Chapitre"+chapitre).doc(reference)
       .update({
         totalCount: increment,
         positiveCount: incrementPositive(),
         negativeCount : incrementNegative(),
         neutralCount: incrementNeutral(),
       })
-      .then(() => {
-        console.log("tP", typeCount)
-       
+      .then(() => {       
 
               db.collection("Users").doc(currentUser.email).collection("References").doc(reference)
               .set({
@@ -101,29 +92,17 @@ const PutComment = ({reference, currentUser, showTextWindow}) => {
                 comment: comment,
               })
               .then(() => {
-        console.log("tP2", typeCount)
         
                 setLoader(false);
                 alert("Ton avis nous a été transmis, merci pour ta contribution ! ");
-                console.log(showTextWindow)
-
-                console.log(showTextWindow)
-                //return () => showTextWindow
-                //window.location.reload(true);
-                //setMerciLoad(true)
                 window.location.reload(true)
-
-                
+                //window.location.replace("http://localhost:3000/privatetexts");                
               })
               .catch((error) => {
                 alert(error.message);
                 setLoader(false);
               });
         
-              
-
-
-
       })
       .catch((error) => {
         alert(error.message);
@@ -135,26 +114,6 @@ const PutComment = ({reference, currentUser, showTextWindow}) => {
     } 
 
   };
-
-/*
-      <Checkbox
-        label="Value 1"
-        checked={checkedOne}
-        onChange={handleChangeOne}
-      />
-      <Checkbox
-        label="Value 2"
-        checked={checkedTwo}
-        onChange={handleChangeTwo}
-      />
-      <Checkbox
-        label="Value 3"
-        checked={checkedThree}
-        onChange={handleChangeThree}
-      />
-      */
-
-  
 
 return (
 
@@ -180,9 +139,6 @@ return (
     </StyledCheckbox>
   </CheckboxContainer>
 
-
-
-    
   </BigBoxItem>
 
   
@@ -275,18 +231,12 @@ return (
   <>
   
   <ThemeLine>Merci pour ta contribution :)  </ThemeLine>
-v
-
   </>
-  
   
   }
 
 </div>
 
-  
-
-    
   );
 };
 

@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import {FaMagento} from 'react-icons/fa'
 import { Container } from '../../globalStyles'
+import { NavLink } from 'react-router-dom';
+
 
 export const StyledHeader = styled.div`
 background: #5711f4;

@@ -1,15 +1,8 @@
-import PropTypes from 'prop-types'
-import Button from './Button'
-import React, { useState } from "react"
-import { useAuth } from "../contexts/AuthContext"
-import { Link, useHistory } from "react-router-dom"
+import React from "react"
 import {ThemeLine} from './Elements/Info.element'
-import {InfoSec,WidthDiv, TextLine, AddIcon, InfoColumn, TopLine, SubLine, InfoRow, TextWrapper} from './Elements/Info.element'
+import {InfoSec, TextLine, InfoRow, } from './Elements/Info.element'
 
 const DeepPage = () => {
-  const [error, setError] = useState("")
-  const { currentUser, logout } = useAuth()
-
 
   return (
     <div>
