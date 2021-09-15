@@ -56,11 +56,11 @@ body {
 
 .btnpublic {
   display: inline-block;
-  background: rgb(1, 17, 17);
-  color: #fff;
+  background: #101522;
+  color: #d1b67a;
   border: none;
   padding: 10px 10px;
-  margin: 5px;
+  margin: 25px;
   border-radius: 5px;
   cursor: pointer;
   text-decoration: none;

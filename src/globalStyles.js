@@ -27,4 +27,21 @@ padding-left:50px;
 }
 
 `
+export const ContainerLine = styled.div`
+
+z-index: 999
+position: absolute;
+width: 100%;
+margin-right: auto;
+margin-left: auto;
+padding-right:50px;
+padding-left:50px;
+flex-direction: column;
+
+
+@media screen  and (max-width : 960px){
+    
+}
+
+`
 export default GlobalStyle;

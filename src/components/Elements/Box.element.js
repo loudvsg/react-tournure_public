@@ -5,9 +5,6 @@ import { Container } from '../../globalStyles'
 
 export const BoxContainer = styled.nav`
 background: #fff;
-height: 100px;
-margin-top: 100px;
-margin-bottom: 100px;
 width: 100%;
 display: flex;
 align-items: center;
@@ -23,11 +20,33 @@ z-index: 999;
 
 `
 
+export const BoxContainerColumn = styled.nav`
+background: #fff;
+
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: space-between;
+font-size: 1.2rem;
+padding: 30px;
+z-index: 999;
+flex-direction: column;
+
+
+@media screen  and (max-width : 960px){
+    transition: all 0.5s ease;
+}
+
+
+`
+
+
+
 export const TextArea = styled.textarea`
 font-size: 1.5rem;
 margin-left: auto;
     margin-right: auto;
-margin-top: 50px;
+margin-top: 10px;
 
 
 `
@@ -36,7 +55,7 @@ export const InputArea = styled.input`
 font-size: 1.5rem;
 margin-left: auto;
 margin-right: auto;
-margin-top: 50px;
+margin: 10px;
 
 
 `
@@ -48,6 +67,16 @@ export const BigBoxItem = styled.div`
 display: flex;
 align-items: center;
 flex-direction: column;
+margin-left: auto;
+    margin-right: auto;
+
+`
+
+export const BigBoxLineItem = styled.div`
+
+display: flex;
+align-items: center;
+flex-direction: line;
 margin-left: auto;
     margin-right: auto;
 
@@ -89,7 +118,7 @@ export const NavTitle = styled.h1`
 
 
 
-export const MobileText = styled.h2`
+export const MobileText = styled.h3`
 
 display: flex;
     

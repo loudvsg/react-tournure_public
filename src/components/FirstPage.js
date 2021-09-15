@@ -2,37 +2,50 @@
 import PublicText from './PublicText'
 import { Container } from '../globalStyles'
 import { useState, useEffect } from 'react'
-import {ThemeLine} from './Elements/Info.element'
-import {InfoSec,WidthDiv, TextLine, AddIcon, InfoColumn, TopLine, SubLine, InfoRow, TextWrapper} from './Elements/Info.element'
+import {ImageWrap, ThemeLine, ThemeTitre,ThemeSousTitre, DivAvecPetitPadding} from './Elements/Info.element'
+import {InfoSec,WidthDiv, TextLine, AddIcon, InfoColumn, InfoRowWithColumns, TopLine, SubLine, InfoRow, TextLineTwoColumn, TextWrapper} from './Elements/Info.element'
 
 
 const FirstPage = () => {
   const[reference, setReference] = useState(null);
+    //<ThemeSousTitre lightBg={true}>{"Chaque numéro est un recueil de plusieurs textes que vous nous avez transmis. La sélection est réalisée par notre équipe de lecteurs. "}</ThemeSousTitre>
 
   return (
 
   <div>
-    <ThemeLine>{"Nous sommes ce que vous écrivez"}</ThemeLine>
+
+  <DivAvecPetitPadding>
+    <ThemeTitre lightBg={true}>{"La tournure : le journal commun aux écrivains"}</ThemeTitre>
+    <ThemeSousTitre lightBg={true}>{"Chaque numéro est un recueil de plusieurs textes que vous nous avez transmis. La sélection est réalisée par notre équipe de lecteurs. "}</ThemeSousTitre>
+  
+  </DivAvecPetitPadding>
 
     <InfoSec lightBg={false}>
     
         
 
-        <InfoRow >
+        <InfoRowWithColumns>
 
 
-    <TextLine lightBg={false}>
+<InfoColumn>
+    <TextLineTwoColumn lightBg={false}>
 
-          {"Nous publions chaque semaine un chapitre de l'histoire commune des écrivains. Vos textes sont lus et relus et quelques uns d'entre eux sont sélectionnés et publiés. "}
+          {"Vos textes sont lus et relus et quelques uns d'entre eux sont sélectionnés et publiés. La sélection est basée sur vos appréciations et commentaires ainsi que par notre équipe de lecteurs critiques. "}
 
-      </TextLine>
+      </TextLineTwoColumn>
 
-      </InfoRow>
+      <TextLineTwoColumn lightBg={false}>
+
+          {"Test de 2 colonnes"}
+
+      </TextLineTwoColumn>
+</InfoColumn>
+      </InfoRowWithColumns>
 
     </InfoSec>
       
 
-    <ThemeLine>{"Grandissons ensemble"}</ThemeLine>
+    <ThemeTitre lightBg={true}>{"Grandissons ensemble"}</ThemeTitre>
   </div>
     
   )

@@ -207,18 +207,17 @@ return (
 
 
 
-          <BoxButton
+          <button
     className="btnpublic"
       type="submit"
 
-      style={{ background: loader ? "#ccc" : " rgb(2, 2, 110)" }}
     >
         
       Envoyer
       
 
       
-    </BoxButton>
+    </button>
 
     </div>
 

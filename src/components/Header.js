@@ -24,7 +24,7 @@ const handleClick = () => setClick(!click);
       <NavTitle >
       <NavLink  activeStyle={{
           fontWeight: "bold",
-          color: "white",
+          color: "#d1b67a",
           }} 
           className="voidbtn"
          to="/">{title}</NavLink></NavTitle>

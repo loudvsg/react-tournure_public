@@ -121,7 +121,7 @@ const PrivateTexts = ({ texts }) => {
             <Card>
               <Card.Body className="justified">
                 {error && <Alert variant="danger">{error}</Alert>}
-                <strong>Vous vous êtes connectés avec l'adresse mail suivante : {currentUser.email}</strong>
+                <strong>Email de connexion : {currentUser.email}</strong>
               </Card.Body>
             </Card>
           
@@ -130,9 +130,9 @@ const PrivateTexts = ({ texts }) => {
       <div className="justified">
 
 
-        <ButtonLogOut variant="link" onClick={handleLogout}>
+        <button className="btnpublic" onClick={handleLogout}>
             Se déconnecter
-          </ButtonLogOut>
+          </button>
       </div>
           
         </div>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../App.css";
 import { db } from "../firebase";
-import { ThemeLine, ThemeLineLow } from "./Elements/Info.element";
+import { ThemeLine, ThemeLineLow,DivAvecTresPetitPadding,ThemeTitre } from "./Elements/Info.element";
 import { InputArea, TextArea, BoxButton} from "./Elements/Box.element";
 
 
@@ -18,6 +18,28 @@ const DepositNewText = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoader(true);
+
+
+if(!name){
+  alert("Veuillez ajouter votre nom");
+  return
+}
+if(!email){
+  alert("Veuillez ajouter votre adresse email");
+  return
+}
+if(!title){
+  alert("Veuillez ajouter votre titre");
+  return
+}
+
+if(!texte){
+  alert("Veuillez ajouter votre texte");
+  return
+}
+
+
+console.log("email", !email)
 
     db.collection("Chapitre"+chapitre).doc(refMillisec)
       .set({
@@ -36,7 +58,7 @@ const DepositNewText = () => {
               .then(() => {
         
                 setLoader(false);
-                alert("Your message has been submitted👍");
+                alert("Votre texte nous a été transféré ! ");
               })
         
               
@@ -63,9 +85,12 @@ const DepositNewText = () => {
 
   return (
     <form className="form" onSubmit={handleSubmit}>
-      <ThemeLine>Dépose ton texte ici </ThemeLine>
+      <ThemeTitre lightBg={true}>Dépose ton texte ici </ThemeTitre>
 
-    <ThemeLine>Nom </ThemeLine>
+
+    <DivAvecTresPetitPadding>
+      <ThemeTitre lightBg={true}>Nom</ThemeTitre>
+    </DivAvecTresPetitPadding>
       
       <div class="justified">
       <InputArea
@@ -77,9 +102,10 @@ const DepositNewText = () => {
       </div>
 
 
-
-    <ThemeLine>Email </ThemeLine>
-
+    <DivAvecTresPetitPadding>
+      <ThemeTitre lightBg={true}>Email</ThemeTitre>
+    </DivAvecTresPetitPadding>
+      
 
       <div class="justified">
 
@@ -90,8 +116,11 @@ const DepositNewText = () => {
       />
       </div>
 
-    <ThemeLine>Titre </ThemeLine>
 
+    <DivAvecTresPetitPadding>
+      <ThemeTitre lightBg={true}>Titre</ThemeTitre>
+    </DivAvecTresPetitPadding>
+      
 
       <div class="justified">
 
@@ -102,15 +131,17 @@ const DepositNewText = () => {
       />
       </div>
 
-    <ThemeLine>Texte </ThemeLine>
 
+    <DivAvecTresPetitPadding>
+      <ThemeTitre lightBg={true}>Texte</ThemeTitre>
+    </DivAvecTresPetitPadding>
+      
 
       <div class="justified">
 
       <TextArea
-      rows="8" cols="70" maxLength="50000"
-
-        placeholder="50 000 caractères maximum"
+      rows="8" cols="70" maxLength="100000"
+        placeholder="100 000 caractères maximum"
         value={texte}
         onChange={(e) => setTexte(e.target.value)}
       ></TextArea>
@@ -122,17 +153,16 @@ const DepositNewText = () => {
 
       <div class="justified">
 
-      <BoxButton
+      <button
       className="btnpublic"
       type="submit"
 
-      style={{ background: loader ? "#ccc" : " rgb(2, 2, 110)" }}
       >
 
       Envoyer
 
 
-      </BoxButton>
+      </button>
 
       </div>
 

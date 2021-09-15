@@ -34,7 +34,7 @@ const PrivateText = ({ text, currentUser , showTextWindow}) => {
                 <br />
                 <TextLine lightBg={true}>
 
-                  {!click ? text.text.slice(0,100) + '...' : text.text}
+                  {!click ? text.text.slice(0,1000) + '...' : text.text}
           
             
                 </TextLine>

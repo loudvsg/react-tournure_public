@@ -3,10 +3,25 @@ import styled from "styled-components";
 export const InfoSec = styled.div`
 line-height: 3;
 color: #413553;
-padding : 160px 0;
+padding : 100px 0;
 background: ${({lightBg}) => (lightBg ? '#fff' : '#101522')};
 `
 
+export const InfoRowWithColumns = styled.div`
+display=flex;
+margin: 0 10px 0 10px;
+flew-wrap: wrap;
+align-items: center;
+transition: all 0.5s ease;
+
+
+@media screen  and (max-width : 768px){
+    margin: 0 50px 0px 50px;
+    transition: all 0.5s ease;
+
+}
+
+`
 export const InfoRow = styled.div`
 display=flex;
 margin: 0 100px 0 100px;
@@ -22,7 +37,6 @@ transition: all 0.5s ease;
 }
 
 `
-
 
 export const Label = styled.label`
 
@@ -86,15 +100,29 @@ export const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
   white-space: nowrap;
   width: 1px;
   cursor: pointer;
+
+
   `
   export const StyledCheckbox = styled.div`
   display: inline-block;
-  width: 46px;
-  height: 46px;
+  width: 35px;
+  height: 35px;
   background: ${props => props.checked ? 'green' : 'black'};
   border-radius: 3px;
   transition: all 150ms;
   cursor: pointer;
+  margin: 15px;
+
+  `
+  export const StyledSmallCheckbox = styled.div`
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background: ${props => props.checked ? 'green' : 'black'};
+  border-radius: 3px;
+  transition: all 150ms;
+  cursor: pointer;
+  margin: 15px;
 
   `
 
@@ -128,13 +156,12 @@ transition: all 0.5s ease;
 
 export const InfoColumn = styled.div`
 margin-bottom : 15px;
-padding-left: 15px 
-padding-right: 15px ;
-max-width:50%;
+
+max-width:100%;
 flex-basis: 50%;
 flex:1;
 
-@media screen  and (max-width : 768px){
+@media screen  and (min-width : 768px){
     display: flex;
     justify-content: center;
     max-width:100%;
@@ -143,6 +170,13 @@ flex:1;
 }
 
 `
+
+export const ImageWrap  = styled.div`
+display:flex;
+justify-content: ${({start}) => (start ? 'flex-start' : 'flex-end')};
+`
+
+
 
 export const TextWrapper = styled.div`
 margin-bottom : 60px;
@@ -190,6 +224,49 @@ float: center;
 display: flex;
 
 `
+
+export const DivAvecPetitPadding = styled.div`
+padding-top : 60px ;
+padding-bottom : 60px ;
+margin: 0 100px 0 100px;
+
+
+`
+
+export const DivAvecTresPetitPadding = styled.div`
+padding-top : 30px ;
+padding-bottom : 30px ;
+`
+export const DivAvecGrandPadding = styled.div`
+padding-top : 160px ;
+padding-bottom : 160px ;
+margin: 0 100px 0 100px;
+
+
+`
+export const DivAvecMoyenPadding = styled.div`
+padding-top : 110px ;
+padding-bottom : 110px ;
+
+margin: 0 100px 0 100px;
+
+`
+export const ThemeTitre = styled.h1`
+color: ${({lightBg}) => (!lightBg ? '#BECAAC' : '#012110')};
+padding-top : 40px ;
+padding-bottom : 40px ;
+text-align: center;
+justify-content: center;
+float: center;
+display: flex;
+`
+export const ThemeSousTitre = styled.h3`
+color: ${({lightBg}) => (!lightBg ? '#BECAAC' : '#012110')};
+text-align: center;
+justify-content: center;
+float: center;
+display: flex;
+`
 export const ThemeLineLow = styled.h3`
 color: #011;
 padding-top : 50px ;
@@ -214,13 +291,29 @@ display: flex;
 
 
 export const TextLine = styled.div`
-color: ${({lightBg}) => (!lightBg ? '#BECAAC' : '#012110')};
+text-align: center;
+justify-content: center;
+float: center;
+display: flex;
+color: ${({lightBg}) => (!lightBg ? '#d1b67a' : '#05022e')};
+`
+
+
+export const TextLineTwoColumn = styled.div`
+margin: 0 20px 0 20px;
+
+text-align: center;
+justify-content: center;
+float: center;
+display: flex;
+color: ${({lightBg}) => (!lightBg ? '#d1b67a' : '#05022e')};
 `
 
 export const SubLine = styled.p`
 color: ${({lightBg}) => (!lightBg ? '#fff' : '#413553')};
 margin-right: 40px;
 display: flex;
+font-weight: bold;
 float: right;
 margin:50px;
 padding-right:50px;
