@@ -165,7 +165,7 @@ function App()  {
     return retruntext.text
   }
 
-  const chapitre = (Math.trunc(new Date().getTime()/((1000*60*60*24*7)))-2699).toString();
+  const chapitre = (Math.trunc(new Date().getTime()/((1000*60*60*24*7)))-2700).toString();
 
   const [blogs,setBlogs]=useState([])
   

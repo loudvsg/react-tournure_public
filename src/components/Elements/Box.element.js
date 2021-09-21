@@ -47,9 +47,28 @@ font-size: 1.5rem;
 margin-left: auto;
     margin-right: auto;
 margin-top: 10px;
+justify-content: center;
+float: center;
+display: flex;
 
 
 `
+export const TextAreaNewText = styled.textarea`
+font-size: 1.5em;
+
+margin-top: 10px;
+ background: transparent;
+  color: black;
+  border: 0 none;
+  width: 100%;
+ -webkit-box-sizing: border-box;
+ -moz-box-sizing: border-box;
+  box-sizing: border-box;  
+color: ${({lightBg}) => (!lightBg ? '#d1b67a' : '#05022e')};
+
+
+`
+
 
 export const InputArea = styled.input`
 font-size: 1.5rem;

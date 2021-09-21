@@ -19,7 +19,7 @@ const handleClick = () => setClick(!click);
   return (
     <Nav>
       <NavContainer>      
-      <IconContext.Provider value={{color: '#ffd'}}>
+      <IconContext.Provider value={{color: '#d1b67a'}}>
       <TitleMenu>
       <NavTitle >
       <NavLink  activeStyle={{
@@ -39,7 +39,7 @@ const handleClick = () => setClick(!click);
           fontWeight: "bold",
           }} 
           className="btnpublic"
-                to="/publicpage">Chapitre : {chapitre}</NavLink>
+                to="/publicpage">Aujourd'hui</NavLink>
       </NavItem>
       
             
@@ -79,7 +79,7 @@ const handleClick = () => setClick(!click);
           fontWeight: "bold",
                     }} 
           className="btnpublic" to="/deeppage">
-            Davantage</NavLink>
+            Journal</NavLink>
         </NavItem>  
 
 

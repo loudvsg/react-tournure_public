@@ -150,3 +150,8 @@ footer {
   height: 2.5rem;
   text-align: center;
 }
+
+#one {
+  background: none;
+  border: none;
+}

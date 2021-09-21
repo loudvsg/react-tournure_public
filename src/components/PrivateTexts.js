@@ -21,7 +21,8 @@ const PrivateTexts = ({ texts }) => {
       }
     }
     
-    const chapitre = (Math.trunc(new Date().getTime()/((1000*60*60*24*7)))-2698).toString();
+  const chapitre = (Math.trunc(new Date().getTime() / ((1000 * 60 * 60 * 24 * 7))) - 2697).toString();
+  console.log(chapitre)
 
       const [noMoreText, setNoMoreText] = useState(false)
       const [thereIsAText, setThereIsAText] = useState(false)

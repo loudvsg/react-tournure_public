@@ -298,6 +298,13 @@ display: flex;
 color: ${({lightBg}) => (!lightBg ? '#d1b67a' : '#05022e')};
 `
 
+export const TextColumn = styled.div`
+text-align: center;
+justify-content: center;
+float: center;
+color: ${({lightBg}) => (!lightBg ? '#d1b67a' : '#05022e')};
+`
+
 
 export const TextLineTwoColumn = styled.div`
 margin: 0 20px 0 20px;
@@ -317,4 +324,5 @@ font-weight: bold;
 float: right;
 margin:50px;
 padding-right:50px;
+position: relative;
 `

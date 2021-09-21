@@ -38,15 +38,15 @@ if(!texte){
   return
 }
 
-
-console.log("email", !email)
+var array = texte.split(/\r?\n/);
+console.log("var ", array)
 
     db.collection("Chapitre"+chapitre).doc(refMillisec)
       .set({
         name: name,
         title: title,
         email: email,
-        text: texte,
+        text: array,
         chapitre: chapitre,
         reference: refMillisec,
         negativeCount:0,
@@ -92,7 +92,7 @@ console.log("email", !email)
       <ThemeTitre lightBg={true}>Nom</ThemeTitre>
     </DivAvecTresPetitPadding>
       
-      <div class="justified">
+      <div className="justified">
       <InputArea
         placeholder="Ton nom d'artiste"
         value={name}
@@ -107,7 +107,7 @@ console.log("email", !email)
     </DivAvecTresPetitPadding>
       
 
-      <div class="justified">
+      <div className="justified">
 
       <InputArea
         placeholder="Email"
@@ -122,7 +122,7 @@ console.log("email", !email)
     </DivAvecTresPetitPadding>
       
 
-      <div class="justified">
+      <div className="justified">
 
       <InputArea
         placeholder="Titre"
@@ -137,7 +137,7 @@ console.log("email", !email)
     </DivAvecTresPetitPadding>
       
 
-      <div class="justified">
+      <div className="justified">
 
       <TextArea
       rows="8" cols="70" maxLength="100000"
@@ -151,7 +151,7 @@ console.log("email", !email)
       <ThemeLineLow>Un texte par semaine maximum</ThemeLineLow>
 
 
-      <div class="justified">
+      <div className="justified">
 
       <button
       className="btnpublic"

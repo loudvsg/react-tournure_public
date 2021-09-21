@@ -18,6 +18,12 @@ const FirstPage = () => {
     <ThemeTitre lightBg={true}>{"La tournure : le journal commun aux écrivains"}</ThemeTitre>
     <ThemeSousTitre lightBg={true}>{"Chaque numéro est un recueil de plusieurs textes que vous nous avez transmis. La sélection est réalisée par notre équipe de lecteurs. "}</ThemeSousTitre>
   
+      </DivAvecPetitPadding>
+      
+      <DivAvecPetitPadding>
+    <ThemeTitre lightBg={false}>{"Cette page est une page dédiée aux tests"}</ThemeTitre>
+    <ThemeSousTitre lightBg={false}>{"ELle va bientôt disparaître donc profitez en"}</ThemeSousTitre>
+  
   </DivAvecPetitPadding>
 
     <InfoSec lightBg={false}>

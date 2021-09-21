@@ -47,12 +47,15 @@ export default function ForgotPassword() {
               <InputArea placeholder="Email" type="email" ref={emailRef} required />
               </Form.Group>
               </div>
-          <div className="justified">
-              
-            <BoxButton disabled={loading} className="btnpublic" type="submit">
-              Envoyer
-              </BoxButton>
-              </div>
+          
+            <div className="justified">
+                 <button
+                className="btnpublic"
+                  type="submit"
+                >
+                Envoyer
+                </button>
+                </div>
           </Form>
 
           <ThemeLineFormal className="w-100 text-center mt-3">

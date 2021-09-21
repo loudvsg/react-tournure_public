@@ -66,18 +66,15 @@ export default function Login({texts}) {
             <div id="password">
               <InputArea placeholder="Mot de passe" type="password" ref={passwordRef} required />
               </div>
-              
-              <div className="justified">
-                
 
-            <BoxButton disabled={loading} className="btnpublic"
-              type="submit"
-
-              >
-              Entrer
-              
-            </BoxButton>
-              </div>
+               <div className="justified">
+                 <button
+                className="btnpublic"
+                  type="submit"
+                >
+                Entrer
+                </button>
+                </div>
                          
       
             </Form>

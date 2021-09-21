@@ -187,7 +187,7 @@ return (
 
   <ThemeLine>Tu peux également laisser un commentaire </ThemeLine>
 
-<div class="justified">
+<div className="justified">
 <TextArea
     rows="8" cols="70" maxLength="5000"
       placeholder="Commentaire Faculatif"
@@ -202,7 +202,7 @@ return (
 </div>
 
     
-    <div class="justified">
+    <div className="justified">
     
 
 

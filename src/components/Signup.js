@@ -85,17 +85,15 @@ export default function Signup() {
               
                 </Form.Group>
             </div>
-                
-
-            <div class="justified">
-                
-
-            <BoxButton disabled={loading} className="btnpublic" type="submit">
-              Entrer
-            
               
-            </BoxButton>
-            </div>
+            <div className="justified">
+                 <button
+                className="btnpublic"
+                  type="submit"
+                >
+                Entrer
+                </button>
+                </div>
             
           </Form>
         </Card.Body>

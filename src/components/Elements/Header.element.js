@@ -14,7 +14,7 @@ margin-bottom: 50px;
 `
 
 export const Nav = styled.nav`
-background: #000;
+  background: #101522;
 height: 100px;
 width: 100%;
 display: flex;
